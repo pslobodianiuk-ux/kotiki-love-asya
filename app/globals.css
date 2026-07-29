@@ -1,0 +1,672 @@
+@import url("https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,600;1,600&family=Manrope:wght@400;500;600;700&display=swap");
+
+:root {
+  --ink: #24211e;
+  --cream: #f3ecdf;
+  --paper: #fffaf0;
+  --red: #c84d35;
+  --pink: #eab8ad;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  margin: 0;
+  background: var(--cream);
+  color: var(--ink);
+  font-family: "Manrope", sans-serif;
+  overflow-x: hidden;
+}
+
+button,
+a {
+  font: inherit;
+}
+
+main {
+  min-height: 100vh;
+  position: relative;
+  overflow: hidden;
+}
+
+.grain {
+  position: fixed;
+  inset: 0;
+  pointer-events: none;
+  opacity: 0.16;
+  z-index: 20;
+  background-image:
+    radial-gradient(circle at 20% 30%, #5a4e44 0 0.6px, transparent 0.8px),
+    radial-gradient(circle at 80% 70%, #5a4e44 0 0.5px, transparent 0.7px);
+  background-size: 7px 9px, 11px 13px;
+  mix-blend-mode: multiply;
+}
+
+nav {
+  max-width: 1240px;
+  margin: 0 auto;
+  padding: 28px 36px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  position: relative;
+  z-index: 5;
+}
+
+nav a {
+  color: var(--ink);
+  text-decoration: none;
+}
+
+.logo {
+  text-transform: uppercase;
+  letter-spacing: 0.18em;
+  font-size: 12px;
+  font-weight: 700;
+}
+
+.logo span {
+  color: var(--red);
+  display: inline-block;
+  animation: beat 1.4s ease-in-out infinite;
+}
+
+.nav-note {
+  font-family: "Cormorant Garamond", serif;
+  font-size: 18px;
+  font-style: italic;
+  border-bottom: 1px solid currentColor;
+}
+
+.hero {
+  min-height: 840px;
+  padding: 58px 24px 20px;
+  text-align: center;
+  position: relative;
+}
+
+.eyebrow {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 16px;
+  margin-bottom: 22px;
+  font-size: 10px;
+  font-weight: 700;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+}
+
+.eyebrow .line {
+  width: 52px;
+  height: 1px;
+  background: var(--ink);
+}
+
+h1 {
+  max-width: 980px;
+  margin: 0 auto;
+  font-family: "Cormorant Garamond", serif;
+  font-size: clamp(72px, 10vw, 146px);
+  font-weight: 600;
+  line-height: 0.78;
+  letter-spacing: -0.055em;
+}
+
+h1 .scribble {
+  color: var(--red);
+  font-style: italic;
+  position: relative;
+  display: inline-block;
+  transform: rotate(-4deg);
+}
+
+h1 .scribble::after {
+  content: "";
+  position: absolute;
+  left: 2%;
+  right: -2%;
+  bottom: -8px;
+  height: 7px;
+  border-top: 3px solid var(--red);
+  border-radius: 50%;
+  transform: rotate(2deg);
+}
+
+h1 em {
+  font-weight: 600;
+}
+
+.intro {
+  margin: 38px auto 0;
+  font-size: 13px;
+  line-height: 1.8;
+  letter-spacing: 0.03em;
+}
+
+.cat-stage {
+  height: 340px;
+  max-width: 900px;
+  margin: 12px auto 0;
+  position: relative;
+}
+
+.cat {
+  --cat: #e9c9a1;
+  --accent: #9a6b52;
+  position: absolute;
+  width: 170px;
+  height: 230px;
+  bottom: 30px;
+  animation: catFloat 3.5s ease-in-out infinite;
+}
+
+.cat-orange {
+  left: 25%;
+  transform-origin: bottom center;
+}
+
+.cat-black {
+  right: 25%;
+  animation-delay: -1.5s;
+}
+
+.cat-body {
+  position: absolute;
+  width: 118px;
+  height: 150px;
+  background: var(--cat);
+  border: 3px solid var(--ink);
+  border-radius: 55% 55% 42% 42%;
+  left: 26px;
+  bottom: 0;
+}
+
+.cat-head {
+  position: absolute;
+  width: 122px;
+  height: 104px;
+  left: 24px;
+  top: 16px;
+  background: var(--cat);
+  border: 3px solid var(--ink);
+  border-radius: 48% 48% 45% 45%;
+  z-index: 2;
+}
+
+.ear {
+  position: absolute;
+  width: 48px;
+  height: 52px;
+  background: var(--cat);
+  border: 3px solid var(--ink);
+  top: -28px;
+  z-index: -1;
+}
+
+.ear::after {
+  content: "";
+  position: absolute;
+  inset: 12px 9px 8px;
+  background: var(--pink);
+}
+
+.ear-left {
+  left: 3px;
+  clip-path: polygon(0 0, 100% 62%, 22% 100%);
+  transform: rotate(-5deg);
+}
+
+.ear-right {
+  right: 3px;
+  clip-path: polygon(100% 0, 78% 100%, 0 62%);
+  transform: rotate(5deg);
+}
+
+.eye {
+  position: absolute;
+  top: 42px;
+  width: 8px;
+  height: 12px;
+  background: var(--ink);
+  border-radius: 50%;
+  animation: blink 5s infinite;
+}
+
+.eye-left {
+  left: 31px;
+}
+
+.eye-right {
+  right: 31px;
+}
+
+.nose {
+  position: absolute;
+  left: 54px;
+  top: 62px;
+  width: 10px;
+  height: 8px;
+  background: var(--red);
+  transform: rotate(45deg);
+  border-radius: 2px 5px 2px 5px;
+}
+
+.whisker {
+  position: absolute;
+  width: 42px;
+  height: 1px;
+  top: 70px;
+  background: var(--ink);
+}
+
+.whisker::after {
+  content: "";
+  position: absolute;
+  width: 100%;
+  height: 1px;
+  top: 8px;
+  background: var(--ink);
+}
+
+.whisker-left {
+  left: -25px;
+  transform: rotate(5deg);
+}
+
+.whisker-right {
+  right: -25px;
+  transform: rotate(-5deg);
+}
+
+.cat-tail {
+  position: absolute;
+  width: 85px;
+  height: 115px;
+  right: -36px;
+  bottom: 18px;
+  border: 18px solid var(--cat);
+  border-left-color: transparent;
+  border-bottom-color: transparent;
+  border-radius: 50%;
+  filter: drop-shadow(2px 0 0 var(--ink)) drop-shadow(-2px 0 0 var(--ink));
+  animation: tail 2s ease-in-out infinite alternate;
+  transform-origin: bottom left;
+}
+
+.cat-paw {
+  position: absolute;
+  width: 45px;
+  height: 32px;
+  bottom: -3px;
+  background: var(--cat);
+  border: 3px solid var(--ink);
+  border-radius: 50%;
+  z-index: 3;
+}
+
+.paw-left {
+  left: 32px;
+}
+
+.paw-right {
+  right: 32px;
+}
+
+.heart-main {
+  position: absolute;
+  left: 50%;
+  top: 55px;
+  color: var(--red);
+  font-family: serif;
+  font-size: 50px;
+  transform: translateX(-50%) rotate(-5deg);
+  animation: beat 1.4s ease-in-out infinite;
+}
+
+.speech {
+  position: absolute;
+  top: 78px;
+  font-family: "Cormorant Garamond", serif;
+  font-size: 17px;
+  font-style: italic;
+  line-height: 1.2;
+  transform: rotate(-7deg);
+}
+
+.speech span {
+  display: block;
+  color: var(--red);
+  font-family: "Manrope", sans-serif;
+  font-size: 23px;
+  font-style: normal;
+  font-weight: 700;
+}
+
+.speech-left {
+  left: 4%;
+}
+
+.speech-right {
+  right: 4%;
+  transform: rotate(7deg);
+}
+
+.ground {
+  position: absolute;
+  left: 16%;
+  right: 16%;
+  bottom: 28px;
+  border-top: 2px solid var(--ink);
+}
+
+.ground span {
+  position: absolute;
+  right: 0;
+  top: 5px;
+  font-family: "Cormorant Garamond", serif;
+  font-size: 13px;
+  font-style: italic;
+}
+
+.ticker {
+  width: calc(100% + 40px);
+  margin-left: -20px;
+  background: var(--red);
+  color: var(--paper);
+  padding: 14px 0;
+  transform: rotate(-1.5deg);
+  overflow: hidden;
+  white-space: nowrap;
+  font-size: 11px;
+  font-weight: 700;
+  letter-spacing: 0.2em;
+}
+
+.ticker div {
+  width: max-content;
+  animation: ticker 22s linear infinite;
+}
+
+.confession {
+  min-height: 650px;
+  max-width: 1100px;
+  margin: 0 auto;
+  padding: 120px 40px 80px;
+  display: grid;
+  grid-template-columns: 110px 1fr 280px;
+  align-items: center;
+  gap: 40px;
+  position: relative;
+}
+
+.number {
+  align-self: start;
+  padding-top: 45px;
+  color: var(--red);
+  font-size: 11px;
+  font-weight: 700;
+  letter-spacing: 0.16em;
+  writing-mode: vertical-rl;
+}
+
+.note-card {
+  min-height: 330px;
+  background: var(--paper);
+  border: 1px solid rgba(36, 33, 30, 0.25);
+  box-shadow: 8px 12px 0 rgba(36, 33, 30, 0.08);
+  padding: 64px 64px 48px;
+  position: relative;
+  transform: rotate(-1deg);
+}
+
+.tape {
+  position: absolute;
+  top: -19px;
+  left: 50%;
+  width: 120px;
+  height: 38px;
+  background: rgba(222, 198, 157, 0.65);
+  transform: translateX(-50%) rotate(3deg);
+}
+
+.tiny {
+  margin: 0 0 24px;
+  font-size: 9px;
+  font-weight: 700;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+}
+
+blockquote {
+  min-height: 125px;
+  margin: 0;
+  font-family: "Cormorant Garamond", serif;
+  font-size: clamp(36px, 4.5vw, 62px);
+  font-style: italic;
+  font-weight: 600;
+  line-height: 0.95;
+  animation: noteIn 0.45s ease both;
+}
+
+button {
+  margin-top: 28px;
+  padding: 12px 0;
+  color: var(--ink);
+  background: none;
+  border: 0;
+  border-bottom: 1px solid var(--ink);
+  cursor: pointer;
+  font-size: 11px;
+  font-weight: 700;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  transition: color 0.2s, border-color 0.2s;
+}
+
+button span {
+  margin-left: 14px;
+}
+
+button:hover,
+button:focus-visible {
+  color: var(--red);
+  border-color: var(--red);
+}
+
+.small-cat-wrap {
+  height: 300px;
+  position: relative;
+}
+
+.cat-small {
+  transform: scale(0.75);
+  transform-origin: bottom center;
+  left: 45px;
+  animation-delay: -0.8s;
+}
+
+.mini-note {
+  position: absolute;
+  right: -15px;
+  top: 5px;
+  font-family: "Cormorant Garamond", serif;
+  font-size: 18px;
+  font-style: italic;
+  transform: rotate(8deg);
+}
+
+.floating-hearts span {
+  position: fixed;
+  z-index: 10;
+  pointer-events: none;
+  color: var(--red);
+  left: calc(38% + var(--i) * 5%);
+  bottom: 20%;
+  opacity: 0;
+  animation: floatHeart 1.4s ease-out both;
+  animation-delay: calc(var(--i) * 0.08s);
+}
+
+footer {
+  border-top: 1px solid rgba(36, 33, 30, 0.3);
+  max-width: 1240px;
+  margin: 0 auto;
+  padding: 26px 36px 36px;
+  display: flex;
+  justify-content: space-between;
+  font-size: 10px;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+}
+
+footer strong {
+  color: var(--red);
+}
+
+@keyframes catFloat {
+  0%, 100% { transform: translateY(0) rotate(-1deg); }
+  50% { transform: translateY(-8px) rotate(1deg); }
+}
+
+@keyframes blink {
+  0%, 45%, 49%, 100% { transform: scaleY(1); }
+  47% { transform: scaleY(0.08); }
+}
+
+@keyframes tail {
+  from { transform: rotate(-7deg); }
+  to { transform: rotate(10deg); }
+}
+
+@keyframes beat {
+  0%, 100% { transform: scale(1) rotate(-5deg); }
+  50% { transform: scale(1.14) rotate(2deg); }
+}
+
+@keyframes ticker {
+  to { transform: translateX(-50%); }
+}
+
+@keyframes noteIn {
+  from { opacity: 0; transform: translateY(12px) rotate(1deg); }
+  to { opacity: 1; transform: translateY(0) rotate(0); }
+}
+
+@keyframes floatHeart {
+  0% { opacity: 0; transform: translateY(0) scale(0.5) rotate(-15deg); }
+  20% { opacity: 1; }
+  100% { opacity: 0; transform: translateY(-220px) translateX(calc((var(--i) - 3) * 24px)) scale(1.4) rotate(15deg); }
+}
+
+@media (max-width: 760px) {
+  nav {
+    padding: 24px 20px;
+  }
+
+  .nav-note {
+    display: none;
+  }
+
+  .hero {
+    min-height: 760px;
+    padding-top: 48px;
+  }
+
+  h1 {
+    font-size: clamp(62px, 20vw, 96px);
+    line-height: 0.82;
+  }
+
+  .eyebrow span:last-child,
+  .eyebrow .line {
+    display: none;
+  }
+
+  .intro br {
+    display: none;
+  }
+
+  .cat-stage {
+    height: 310px;
+    margin-top: 28px;
+  }
+
+  .cat {
+    transform: scale(0.72);
+    transform-origin: bottom center;
+  }
+
+  .cat-orange {
+    left: 10%;
+  }
+
+  .cat-black {
+    right: 10%;
+  }
+
+  .heart-main {
+    top: 80px;
+  }
+
+  .speech {
+    display: none;
+  }
+
+  .ground {
+    left: 5%;
+    right: 5%;
+  }
+
+  .confession {
+    padding: 100px 20px 70px;
+    grid-template-columns: 1fr;
+    gap: 20px;
+  }
+
+  .number {
+    display: none;
+  }
+
+  .note-card {
+    min-height: 360px;
+    padding: 54px 30px 36px;
+  }
+
+  blockquote {
+    min-height: 145px;
+    font-size: 42px;
+  }
+
+  .small-cat-wrap {
+    height: 245px;
+    width: 230px;
+    justify-self: end;
+  }
+
+  .cat-small {
+    transform: scale(0.65);
+  }
+
+  footer {
+    padding: 24px 20px;
+    gap: 20px;
+    line-height: 1.5;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    scroll-behavior: auto !important;
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+  }
+}
